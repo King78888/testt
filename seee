@@ -1,0 +1,17 @@
+import requests
+
+def upload_file(url, file_path):
+    with open(file_path, 'rb') as file:
+        files = {'file': file}
+        response = requests.post(url, files=files)https://github.com/King78888/testt/tree/main
+        
+        if response.status_code == 200:
+            print("File uploaded successfully.")
+        else:
+            print("Failed to upload file. Status code:", response.status_code)
+
+# Example usage
+if __name__ == "__main__":
+    upload_url = "https://example.com/upload"  # Change this to your upload endpoint
+    file_path = "path/to/your/file.txt"  # Change this to the path of the file you want to upload
+    upload_file(upload_url, file_path)
